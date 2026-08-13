@@ -45,8 +45,8 @@ public abstract class Pedido {
     public abstract String getTipo();
     @Override
     public String toString(){
-        return "Pedido #"+id+" ["+getTipo()+"  "+cliente+"  "+" $"+monto+"  "
-                +" envio: $"+calcularCostoEnvio() +"   "+estado+" - "+estado.getDescrpicion();
+        return "Pedido #"+id+" ["+getTipo()+"  "+cliente+"  "+" $"+monto+"  "+estado+" - "+estado.getDescrpicion()
+                +"    "+" envio: $"+calcularCostoEnvio() +"   ";
     }
     
 }

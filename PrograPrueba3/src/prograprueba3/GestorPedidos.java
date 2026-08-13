@@ -17,6 +17,44 @@ public class GestorPedidos {
         cantidad=0;
     
     }
+    public int buscarPorId(int id)throws PedidoNoEncontrado{
+    for(int i=0;i<=cantidad;i++){
+        if(pedidos[i].id==id){
+            return i;
+        }
+    }
+        throw new PedidoNoEncontrado(id);
+    }
+    public void cambiarEstado(int id, EstadoPedido nuevoEstado)throws TransicionEstadoException, PedidoNoEncontrado{
+    if(buscarPorId(id)!=-1){
+        int pos = buscarPorId(id);
+        if(pedidos[pos].getEstado().transicionarA(nuevoEstado)){
+            pedidos[pos].setEstado(nuevoEstado);
+            
+        }   else{
+        throw new TransicionEstadoException(pedidos[pos].getEstado(), nuevoEstado);
+        
+        }
+    }
+    
+    }
+    public void listarPorEstado(EstadoPedido estado){
+    Pedido pedidos_ordenada[];
+    for(Pedido p: pedidos){
+        switch(p.estado){
+        
+            case CANCELADO:
+                
+            case PROCESANDO:
+            case ENVIADO:
+            
+        
+        }
+        
+    }
+    
+    
+    }
     
     public void agregarPedido(Pedido dato)throws CapacidadException{
         if(cantidad==pedidos.length){
